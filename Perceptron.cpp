@@ -2,7 +2,7 @@
 #include <random>
 #include <ctime>
 
-
+//
 
 Perceptron::Perceptron(unsigned int n, double lr) {
 	//dynamic allocation of pointers based on arguments
