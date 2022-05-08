@@ -8,7 +8,6 @@
 using namespace sf;
 int main() {
 	
-
 	//MAIN SCREEN SETUP
 	unsigned int size = 800;
 	RenderWindow screen(VideoMode(size, size), "Perceptron Guess!", Style::Close | Style::Titlebar);
