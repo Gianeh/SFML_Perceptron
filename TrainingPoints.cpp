@@ -1,7 +1,7 @@
 #include "TrainingPoints.h"
 #include <random>
 #include <ctime>
-
+//
 //sets by default the function to x > y, use setFunction(m,q)
 TrainingPoints::TrainingPoints(unsigned int num, RenderWindow* s, int _rad) {
 	number = num;
