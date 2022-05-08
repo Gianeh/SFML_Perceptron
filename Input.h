@@ -13,6 +13,7 @@ class Input
 		unsigned int i_len;
 	public:
 		Input(unsigned int m, bool manual = false);
+		~Input();
 		unsigned int len();
 		void load(int i, unsigned int _new);
 		float getValue(unsigned int i);
