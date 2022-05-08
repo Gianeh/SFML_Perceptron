@@ -19,7 +19,12 @@ Input::Input(unsigned int m, bool manual) {
 		}
 	}
 }
-
+Input::~Input(){
+	if(inputs != nullptr){
+		delete[] inputs;
+		std::cerr << std::endl << "Burnt temp" << std::endl;
+	}
+}
 unsigned int Input::len() {
 	return i_len;
 }

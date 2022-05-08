@@ -11,9 +11,10 @@ private:
 	float learn_rate;
 public:
 	Perceptron(unsigned int n, double lr = 0);
+	~Perceptron();
 	void randWeights();
-	int guess(Input input);
+	int guess(Input* input);
 	void showWeights();
-	void train(Input input, int label);
+	void train(Input* input, int label);
 };
 
