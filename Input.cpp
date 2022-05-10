@@ -21,8 +21,9 @@ Input::Input(unsigned int m, bool manual) {
 }
 Input::~Input(){
 	if(inputs != nullptr){
+		std::cerr << std::endl << "Burning input vector..." << std::endl;
 		delete[] inputs;
-		std::cerr << std::endl << "Burnt temp" << std::endl;
+		std::cerr << "Done../" << std::endl;
 	}
 }
 unsigned int Input::len() {

@@ -13,12 +13,12 @@ int main() {
 	RenderWindow screen(VideoMode(size, size), "Perceptron Guess!", Style::Close | Style::Titlebar);
 	
 	//TRAINING SET, BRAIN & INPUTS SETUP
-	unsigned int train_set_size = 250;
+	unsigned int train_set_size = 500;
 	TrainingPoints points(train_set_size, &screen);
 
-	points.setFunction(2,size/2);//FIX
+	points.setFunction(1,0); //doesn't work with negatives
 
-	Perceptron brain(3, 0.1);	//2 weights, in this case x and y coordinates of training points, + a bias and a learning rate
+	Perceptron brain(3, 0.1);	//2 weights, in this case x and y coordinates of training points, + bias and learning rate
 	brain.showWeights(); //just prints the random starting weights
 	Input temp(3);
 
@@ -31,9 +31,9 @@ int main() {
 	//Framerate Limit
 	screen.setFramerateLimit(2);
 
-	//Generation learning point and counter
+	//Generation counter and learning point 
 	int gen = 0;
-	int start_train_gen = 20;
+	int start_train_gen = 3;
 	
 	//DRAW LOOP
 	while (screen.isOpen()) {

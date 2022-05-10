@@ -18,8 +18,9 @@ Perceptron::Perceptron(unsigned int n, double lr) {
 }
 Perceptron::~Perceptron(){
 	if(weights != nullptr){
+		std::cerr << std::endl << "Burning brain..." << std::endl;
 		delete[] weights;
-		std::cerr << std::endl << "Burnt brain" << std::endl;
+		std::cerr << "Done../" << std::endl;
 	}
 }
 void Perceptron::randWeights() {
@@ -51,15 +52,15 @@ void Perceptron::showWeights() {
 
 void Perceptron::train(Input* input, int label) {
 	if (w_len != input->len()) {
-		std::cout << "\nWrong Input size, doesn't correspond to weights lenght -> return" << std::endl;
+		std::cerr << "\nWrong Input size, doesn't correspond to weights lenght -> return" << std::endl;
 		return;
 	}
 	int temp_guess = guess(input);
 	int error = label - temp_guess;
 
 	//temporaneus monitor for weights correction
-	if(error == 0) std::cout << std::endl << "Error is: 0!" << std::endl;
-	else std::cout << std::endl << "Error is: " << error << std::endl;
+	if(error == 0) std::cerr << std::endl << "Error is: 0!" << std::endl;
+	else std::cerr << std::endl << "Error is: " << error << std::endl;
 
 	for (int i = 0; i < w_len; i++) {
 		weights[i] += error * input->getValue(i) * learn_rate;

@@ -32,15 +32,16 @@ TrainingPoints::TrainingPoints(unsigned int num, RenderWindow* s, int _rad) {
 }
 TrainingPoints::~TrainingPoints(){
 	if(points != nullptr){
+		std::cerr << std::endl << "Burning trainset..." << std::endl;
 		delete[] points;
-		std::cerr << std::endl << "Burnt trainset" << std::endl;
+		std::cerr << "Done../" << std::endl;
 	}
 }
 point TrainingPoints::getPoint(int i) {
 	return points[i];
 }
 
-//RETURN THE Y VALUE BASED ON M AND Q
+//RETURN THE y VALUE BASED ON m AND q
 int f(int x, float m, float q){
 	return m * x + q;
 }
@@ -50,8 +51,8 @@ void TrainingPoints::setFunction(float m, float q){
 		
 	}
 	//RESETS THE DIVISION LINE BASED ON FUNCTION
-	division.setStart(0,f(0, m, q));
-	division.setEnd(screen->getSize().x, f(screen->getSize().x, m, q));
+	division.setStart(screen->getSize().x/2, screen->getSize().y/2  - f(0, m, q));
+	division.setEnd(screen->getSize().x, screen->getSize().y/2 -f(screen->getSize().x, m, q));
 	division.setSlope();
 	division.resetPosition();
 }
